@@ -9,69 +9,38 @@ import Interests from './components/Interests'
 
 function App() {
   return (
-    <div className="min-h-screen bg-black py-10 px-4 font-sans text-black flex justify-center">
-      <div className="w-full max-w-[850px] bg-white pb-16 shadow-2xl">
-        <Header />
+    <div className="min-h-screen bg-slate-50 py-10 px-4 sm:px-6 lg:px-8 font-sans text-slate-600 flex justify-center selection:bg-blue-100">
+      <div className="w-full max-w-5xl">
+        <div className="bg-white rounded-[2rem] shadow-xl shadow-slate-200/50 overflow-hidden border border-slate-100">
+          <Header />
 
-        <div className="mx-8 lg:mx-12 border-l border-r border-t border-dashed border-black mt-2">
-          <div className="flex flex-col md:flex-row border-b border-dashed border-black text-sm">
-            <div className="w-full md:w-1/3 py-1.5 px-2 text-center border-b md:border-b-0 md:border-r border-dashed border-black">
-              <a href="tel:+380993235480" className="hover:underline">+380993235480</a>
-            </div>
-            <div className="w-full md:w-1/3 py-1.5 px-2 text-center border-b md:border-b-0 md:border-r border-dashed border-black break-words">
-              <a href="mailto:dima1990gor@gmail.com" className="hover:underline">dima1990gor@gmail.com</a>
-            </div>
-            <div className="w-full md:w-1/3 py-1.5 px-2 text-center">
-              Lviv, Ukraine
-            </div>
-          </div>
+          <div className="p-8 lg:p-12">
+            <section className="mb-12">
+              <Summary />
+            </section>
 
-          <div className="border-b border-dashed border-black p-2 bg-white">
-            <h2 className="text-lg font-bold">Summary</h2>
-          </div>
-          <div className="border-b border-dashed border-black p-3 bg-white text-sm">
-            <Summary />
-          </div>
-
-          <div className="flex flex-col md:flex-row bg-white border-b border-dashed border-black">
-            {/* LEFT COLUMN */}
-            <div className="w-full md:w-[32%] md:border-r border-dashed border-black flex flex-col">
-              <div className="p-2 border-b border-dashed border-black">
-                <h2 className="text-lg font-bold">Education</h2>
-              </div>
-              <div className="p-3 border-b border-dashed border-black">
-                <Education />
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14">
+              {/* Ліва колонка */}
+              <div className="md:col-span-4 space-y-12">
+                <section>
+                  <Education />
+                </section>
+                <section>
+                  <Skills />
+                </section>
+                <section>
+                  <Interests />
+                </section>
               </div>
 
-              <div className="p-2 border-b border-dashed border-black">
-                <h2 className="text-lg font-bold">Skills</h2>
-              </div>
-              <div className="p-3 border-b border-dashed border-black">
-                <Skills />
-              </div>
-
-              <div className="p-2 border-b border-dashed border-black">
-                <h2 className="text-lg font-bold">Interests</h2>
-              </div>
-              <div className="p-3">
-                <Interests />
-              </div>
-            </div>
-
-            {/* RIGHT COLUMN */}
-            <div className="w-full md:w-[68%] flex flex-col">
-              <div className="p-2 border-b border-dashed border-black bg-white">
-                <h2 className="text-lg font-bold">Experience</h2>
-              </div>
-              <div className="p-3 border-b border-dashed border-black">
-                <Experience />
-              </div>
-
-              <div className="p-2 border-b border-dashed border-black bg-white">
-                <h2 className="text-lg font-bold">Projects</h2>
-              </div>
-              <div className="p-3">
-                <Projects />
+              {/* Права колонка */}
+              <div className="md:col-span-8 space-y-12">
+                <section>
+                  <Experience />
+                </section>
+                <section>
+                  <Projects />
+                </section>
               </div>
             </div>
           </div>
