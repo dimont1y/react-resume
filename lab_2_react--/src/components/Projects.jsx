@@ -1,16 +1,24 @@
 export default function Projects() {
     return (
-        <section>
-            <h2>Academic Projects</h2>
-            <ul>
-                <li><strong>Vulnerability & Risk Analysis (ISO 27001):</strong> Performed structured gap analysis and
-                    qualitative risk assessment for simulated enterprise environments; proposed mitigation strategies
-                    aligned with international standards.</li>
-                <li><strong>Network Security Laboratories:</strong> Conducted traffic analysis and wireless security
-                    assessments (WPA2/WPA3 protocols) in controlled lab environments.</li>
-                <li><strong>Secure Web Development:</strong> Developed a web application focused on preventing common
-                    vulnerabilities (XSS, SQL Injection) and implementing secure session management.</li>
-            </ul>
-        </section>
+        <div className="space-y-4 font-sans text-sm pb-8">
+            <div>
+                <p className="font-bold">Vulnerability & Risk Analysis (ISO 27001)</p>
+                <ul className="list-disc leading-snug ml-4 space-y-1 mt-1">
+                    <li>Performed structured gap analysis and qualitative risk assessment for enterprise environments</li>
+                </ul>
+            </div>
+            <div>
+                <p className="font-bold">Network Security Laboratories</p>
+                <ul className="list-disc leading-snug ml-4 space-y-1 mt-1">
+                    <li>Conducted traffic analysis and wireless security assessments in controlled lab environments</li>
+                </ul>
+            </div>
+            <div>
+                <p className="font-bold">Secure Web Development</p>
+                <ul className="list-disc leading-snug ml-4 space-y-1 mt-1">
+                    <li>Developed a web application focused on preventing common vulnerabilities (XSS, SQL Injection)</li>
+                </ul>
+            </div>
+        </div>
     );
 }

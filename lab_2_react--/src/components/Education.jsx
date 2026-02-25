@@ -1,25 +1,16 @@
 export default function Education() {
     return (
-        <section>
-            <h2>Education</h2>
-            <article>
-                <h3>Lviv Polytechnic National University | Bachelor in Cybersecurity</h3>
-                <p>Expected 2027</p>
-                <ul>
-                    <li><strong>Key Coursework:</strong> Network Security (OSI, TCP/IP, DNS, HTTP/HTTPS), Risk
-                        Management & ISO/IEC 27001 fundamentals, Database Security, and Secure Architectures.</li>
-                    <li><strong>Practical Experience:</strong> Hands-on laboratory training in vulnerability
-                        identification, traffic analysis, and defense-in-depth implementation.</li>
-                </ul>
-            </article>
-            <article>
-                <h3>MASC School | Systems & Workflow Automation Specialization</h3>
-                <p>08/2025</p>
-                <ul>
-                    <li>Specialized in API-led integrations, automation logic design, and structured data processing
-                        workflows.</li>
-                </ul>
-            </article>
-        </section>
+        <div className="space-y-4 font-sans text-sm">
+            <div>
+                <p className="font-bold">Lviv Polytechnic National University</p>
+                <p>Bachelor in Cybersecurity</p>
+                <p className="text-gray-800">Expected 2027</p>
+            </div>
+            <div>
+                <p className="font-bold">MASC School</p>
+                <p>Systems & Workflow Automation</p>
+                <p className="text-gray-800">08/2025</p>
+            </div>
+        </div>
     );
 }

@@ -1,13 +1,10 @@
 export default function Interests() {
     return (
-        <section>
-            <h2>Areas of Interest</h2>
-            <ul>
-                <li>Artificial Intelligence in Cybersecurity (AI-driven threat detection)</li>
-                <li>Security Automation & SOAR Concepts</li>
-                <li>Risk-Based Security Management</li>
-                <li>Network Security & Secure Architectures</li>
-            </ul>
-        </section>
+        <ul className="font-sans text-sm list-disc ml-4 space-y-1">
+            <li>AI in Cybersecurity</li>
+            <li>Security Automation & SOAR</li>
+            <li>Risk-Based Security Management</li>
+            <li>Network Security Architecture</li>
+        </ul>
     );
 }
