@@ -1,1 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
+
+/* ===== THEME TOKENS (Day) ===== */
+:root {
+  --bg: #f0f4f8;
+  --card: #ffffff;
+  --text: #1e293b;
+  --muted: #64748b;
+  --accent: #3b82f6;
+  --accent-light: #dbeafe;
+  --border: #e2e8f0;
+  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --header-from: #1e3a5f;
+  --header-to: #2563eb;
+  --tag-bg: #eff6ff;
+  --tag-text: #1d4ed8;
+  --footer-bg: #1e293b;
+  --footer-text: #94a3b8;
+}
+
+/* ===== THEME TOKENS (Night) ===== */
+[data-theme="night"] {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #60a5fa;
+  --accent-light: #1e3a5f;
+  --border: #334155;
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  --header-from: #0f172a;
+  --header-to: #1e3a5f;
+  --tag-bg: #1e3a5f;
+  --tag-text: #93c5fd;
+  --footer-bg: #020617;
+  --footer-text: #64748b;
+}
+
+/* ===== BASE RESET ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.4s ease, color 0.4s ease;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+#root {
+  min-height: 100vh;
+}

@@ -1,53 +1,101 @@
-import './App.css'
-import Header from './components/Header'
-import Summary from './components/Summary'
-import Education from './components/Education'
-import Skills from './components/Skills'
-import Experience from './components/Experience'
-import Projects from './components/Projects'
-import Interests from './components/Interests'
+import { useState, useEffect } from 'react';
+import './App.css';
+import Header from './components/Header';
+import Summary from './components/Summary';
+import Education from './components/Education';
+import Skills from './components/Skills';
+import Experience from './components/Experience';
+import Projects from './components/Projects';
+import Interests from './components/Interests';
+import Footer from './components/Footer';
+import Reviews from './components/Reviews';
+import ContactForm from './components/ContactForm';
 
 function App() {
+  /* ====== 4. Theme Switcher (useState + useEffect) ====== */
+  const getAutoTheme = (): string => {
+    const hour = new Date().getHours();
+    return hour >= 7 && hour < 21 ? 'day' : 'night';
+  };
+
+  const [theme, setTheme] = useState<string>(() => {
+    return localStorage.getItem('theme') || getAutoTheme();
+  });
+
+  // Apply theme to <html> on change
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  // Auto-detect theme on mount
+  useEffect(() => {
+    if (!localStorage.getItem('theme')) {
+      setTheme(getAutoTheme());
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    setTheme(prev => (prev === 'night' ? 'day' : 'night'));
+  };
+
+  /* ====== 3. Modal – show after 60 seconds ====== */
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsModalOpen(true);
+    }, 60000); // 60 seconds
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-slate-50 py-10 px-4 sm:px-6 lg:px-8 font-sans text-slate-600 flex justify-center selection:bg-blue-100">
-      <div className="w-full max-w-5xl">
-        <div className="bg-white rounded-[2rem] shadow-xl shadow-slate-200/50 overflow-hidden border border-slate-100">
-          <Header />
+    <>
+      {/* Theme Toggle Button */}
+      <button className="theme-btn" onClick={toggleTheme} aria-label="Toggle theme">
+        <span>{theme === 'night' ? '🌙' : '☀️'}</span>
+        <span>{theme === 'night' ? 'Night' : 'Day'}</span>
+      </button>
 
-          <div className="p-8 lg:p-12">
-            <section className="mb-12">
-              <Summary />
-            </section>
+      {/* Header */}
+      <Header />
 
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14">
-              {/* Ліва колонка */}
-              <div className="md:col-span-4 space-y-12">
-                <section>
-                  <Education />
-                </section>
-                <section>
-                  <Skills />
-                </section>
-                <section>
-                  <Interests />
-                </section>
-              </div>
+      {/* Main Content */}
+      <div className="app-container">
+        {/* Summary */}
+        <Summary />
 
-              {/* Права колонка */}
-              <div className="md:col-span-8 space-y-12">
-                <section>
-                  <Experience />
-                </section>
-                <section>
-                  <Projects />
-                </section>
-              </div>
-            </div>
-          </div>
+        {/* Education + Skills grid */}
+        <div className="grid-2">
+          <Education />
+          <Skills />
         </div>
+
+        {/* Experience */}
+        <Experience />
+
+        {/* Projects */}
+        <Projects />
+
+        {/* Interests */}
+        <Interests />
+
+        {/* Reviews – Fetch API (variant 5) */}
+        <Reviews />
       </div>
-    </div>
-  )
+
+      {/* Footer – LocalStorage */}
+      <div className="app-container">
+        <Footer />
+      </div>
+
+      {/* Contact Form Modal */}
+      <ContactForm
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
+    </>
+  );
 }
 
-export default App
+export default App;
